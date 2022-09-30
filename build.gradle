@@ -23,6 +23,7 @@ dependencies {
     compileOnly 'org.projectlombok:lombok'
     runtimeOnly 'mysql:mysql-connector-java'
     annotationProcessor 'org.projectlombok:lombok'
+    runtimeOnly 'mysql:mysql-connector-java'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
@@ -30,6 +31,7 @@ tasks.named('test') {
     useJUnitPlatform()
 }
 
+//react-java packaging configs
 def webappDir = "$projectDir/src/main/frontend"
 
 sourceSets {

@@ -5,6 +5,7 @@ function Login(){
     const [inputId, setInputId] = useState('');
     const [inputPw, setInputPw] = useState('');
 
+    // when change input data then value change and active useState
     const handleInputId = (e) => {
         setInputId(e.target.value);
     }
