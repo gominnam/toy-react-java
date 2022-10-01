@@ -16,14 +16,23 @@ function Login(){
 
     const onClickLogin = () => {
         console.log("click login button.");
-    }
 
-    // first call after rendering
-    useEffect(() => {
-        axios.get('/api/login')
-            .then(res => console.log(res))
-            .catch()
-    }, [])
+        axios(
+            {
+                url: '/api/login',
+                method: 'post',
+                data: {
+                    id: inputId,
+                    password: inputPw
+                } ,
+
+                baseURL: 'http://localhost:8080',
+            }
+        ).then(function (response) {
+            console.log(response.data)
+            console.log(response.data.User[0])
+        });
+    }
 
     return(
         <div>
