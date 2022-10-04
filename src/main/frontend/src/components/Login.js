@@ -4,6 +4,7 @@ import axios from "axios";
 function Login(){
     const [inputId, setInputId] = useState('');
     const [inputPw, setInputPw] = useState('');
+    const [user, setUser] = useState({userId:'kk',password:null});
 
     // when change input data then value change and active useState
     const handleInputId = (e) => {
@@ -33,6 +34,13 @@ function Login(){
             console.log(response.data.User[0])
         });
     }
+
+    useEffect(() => {
+        axios.get('/api/hello', user.userId)
+            .then(res => console.log(res)
+            )
+            .catch()
+    }, [])
 
     return(
         <div>
