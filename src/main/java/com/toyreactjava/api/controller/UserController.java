@@ -18,7 +18,9 @@ public class UserController {
     @ResponseBody
     @GetMapping (value="/hello")
     public List<User> hello(@ModelAttribute("user") User user) throws SQLException, Exception{
+        System.out.println("params : " + user);
         List<User> users = userService.find(user.getUserId());
-        return users;
+        List<User> users2 = userService.getUsers();
+        return users2;
     }
 }
