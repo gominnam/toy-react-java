@@ -8,26 +8,20 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+@Transactional
 @Service("uerService")
-public class UserServiceImpl implements UserService{
+public class UserServiceImpl {
 
     @Autowired
     private UserRepository userRepository;
 
-    @Transactional(readOnly = true)
     public List<User> getUsers() {
         return userRepository.findAll();
     }
 
-    @Override
-    public List<User> find(String userId) {
-        return userRepository.findByUserId(userId);
-    }
-
-    @Override
-    public User save(User user) {
-        userRepository.save(user);
-        return user;
+    @Transactional
+    public User getByUserId(String userId) {
+        return userRepository.getByUserId(userId);
     }
 
 }

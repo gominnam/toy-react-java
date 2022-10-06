@@ -4,9 +4,7 @@ import axios from "axios";
 function Login(){
     const [inputId, setInputId] = useState('');
     const [inputPw, setInputPw] = useState('');
-    const [user, setUser] = useState({userId:'kk',password:null});
 
-    // when change input data then value change and active useState
     const handleInputId = (e) => {
         setInputId(e.target.value);
     }
@@ -16,23 +14,15 @@ function Login(){
     }
 
     const onClickLogin = () => {
-        console.log("click login button.");
-
-        axios(
-            {
-                url: '/api/login',
-                method: 'post',
-                data: {
-                    id: inputId,
-                    password: inputPw
-                } ,
-
-                baseURL: 'http://localhost:8080',
-            }
-        ).then(function (response) {
-            console.log(response.data)
-            console.log(response.data.User[0])
-        });
+        const body = { 'userId': inputId, 'password': inputPw };
+        console.log(`click login button. : ${body}`);
+        axios.post('http://localhost:8080/api/login', body)
+            .then(response => {
+                console.log(response.data)
+            })
+            .catch(error =>{
+                console.error('There was an error!', error);
+            });
     }
 
     useEffect(() => {
