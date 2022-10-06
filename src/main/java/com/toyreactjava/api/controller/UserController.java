@@ -1,7 +1,8 @@
 package com.toyreactjava.api.controller;
 
+import com.toyreactjava.api.common.ApiResponse;
 import com.toyreactjava.api.model.User;
-import com.toyreactjava.api.services.UserServiceImpl;
+import com.toyreactjava.api.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,7 +14,7 @@ import java.util.List;
 public class UserController {
 
     @Autowired
-    private UserServiceImpl userService;
+    private UserService userService;
 
     @ResponseBody
     @GetMapping (value="/hello")
@@ -24,8 +25,14 @@ public class UserController {
     }
 
     @PostMapping (value="/login")
-    public User login(@RequestBody User user) throws SQLException, Exception{
-        System.out.println("params : " + user);
-        return userService.getByUserId(user.getUserId());
+    public ApiResponse<User> login(@RequestBody User user) throws SQLException, Exception{
+        User loginUser = userService.login(user);
+        System.out.println("params : " + loginUser);
+
+        if(loginUser == null){
+            return new ApiResponse<>(ApiResponse.BAD_REQUEST, "invalid_user_info", null);
+        }
+
+        return new ApiResponse<>(ApiResponse.BAD_REQUEST, "welcome_toy_world!", null);
     }
 }

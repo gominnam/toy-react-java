@@ -26,7 +26,7 @@ function Login(){
     }
 
     useEffect(() => {
-        axios.get('/api/hello', user.userId)
+        axios.get('/api/hello', inputId)
             .then(res => console.log(res)
             )
             .catch()

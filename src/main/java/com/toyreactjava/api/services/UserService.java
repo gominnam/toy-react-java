@@ -1,12 +1,31 @@
 package com.toyreactjava.api.services;
 
 import com.toyreactjava.api.model.User;
+import com.toyreactjava.api.repositories.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-public interface UserService {
+@Transactional
+@Service("uerService")
+public class UserService {
 
-    List<User> find(String userId);
+    @Autowired
+    private UserRepository userRepository;
 
-    User save(User user);
+    public List<User> getUsers() {
+        return userRepository.findAll();
+    }
+
+    @Transactional
+    public User getByUserId(String userId) {
+        return userRepository.getByUserId(userId);
+    }
+
+    @Transactional
+    public User login(User user) {
+        return userRepository.login(user.getUserId(), user.getPassword());
+    }
 }
