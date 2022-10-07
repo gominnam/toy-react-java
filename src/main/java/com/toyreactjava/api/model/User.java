@@ -1,6 +1,7 @@
 package com.toyreactjava.api.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -10,6 +11,7 @@ import javax.persistence.*;
 @Table(name="user")
 @Getter
 @Setter
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class User {
 
     @Id
@@ -18,4 +20,5 @@ public class User {
     @Column(name = "user_id")
     private String userId;
     private String password;
+
 }
