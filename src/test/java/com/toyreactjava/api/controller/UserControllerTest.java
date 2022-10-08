@@ -4,8 +4,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.toyreactjava.api.App;
 import com.toyreactjava.api.model.User;
 import com.toyreactjava.api.repositories.UserRepository;
-import com.toyreactjava.api.services.UserService;
-import org.hibernate.Session;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -26,7 +24,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @RunWith(SpringRunner.class)
 @ContextConfiguration(classes = App.class)
 @SpringBootTest
-class UserControllerTest {
+public class UserControllerTest {
 
     @Autowired
     private WebApplicationContext wac;
