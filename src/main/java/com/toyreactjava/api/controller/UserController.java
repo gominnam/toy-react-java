@@ -33,6 +33,6 @@ public class UserController {
             return new ApiResponse<>(ApiResponse.BAD_REQUEST, "invalid_user_info", null);
         }
 
-        return new ApiResponse<>(ApiResponse.BAD_REQUEST, "welcome_toy_world!", null);
+        return new ApiResponse<>(ApiResponse.OK, "welcome_toy_world!", null);
     }
 }

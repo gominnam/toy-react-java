@@ -1,9 +1,11 @@
 import React, {useState, useEffect} from 'react';
+import {useNavigate} from "react-router-dom"
 import axios from "axios";
 
 function Login(){
     const [inputId, setInputId] = useState('');
     const [inputPw, setInputPw] = useState('');
+    const navigate = useNavigate();
 
     const handleInputId = (e) => {
         setInputId(e.target.value);
@@ -18,7 +20,8 @@ function Login(){
         console.log(`click login button. : ${body}`);
         axios.post('http://localhost:8080/api/login', body)
             .then(response => {
-                console.log(response.data)
+                console.log(response.data);
+                navigate("/chat")
             })
             .catch(error =>{
                 console.error('There was an error!', error);
