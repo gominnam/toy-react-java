@@ -21,7 +21,7 @@ function Login(){
         axios.post('http://localhost:8080/api/login', body)
             .then(response => {
                 console.log(response.data);
-                navigate("/chat")
+                navigate("/main")
             })
             .catch(error =>{
                 console.error('There was an error!', error);
