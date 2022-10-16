@@ -13,7 +13,7 @@ const Board = () => {
                 const hrefs = res.data.result.href;
                 const titles = res.data.result.title;
                 const rankItems = hrefs.map((e, i) => {
-                    return {"no": i, "href": e, "title": titles[i]}
+                    return {"no": i+1, "href": e, "title": titles[i]}
                 });
                 setRankItems(rankItems);
             })

@@ -16,14 +16,6 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @ResponseBody
-    @GetMapping (value="/hello")
-    public List<User> hello(@ModelAttribute("user") User user) throws SQLException, Exception{
-        System.out.println("params : " + user);
-        List<User> users2 = userService.getUsers();
-        return users2;
-    }
-
     @PostMapping (value="/login")
     public ApiResponse<User> login(@RequestBody User user) throws SQLException, Exception{
         User loginUser = userService.login(user);
