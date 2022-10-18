@@ -1,7 +1,7 @@
 package com.toyreactjava.api.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.toyreactjava.api.App;
+import com.toyreactjava.App;
 import com.toyreactjava.api.model.User;
 import com.toyreactjava.api.repositories.UserRepository;
 import org.junit.jupiter.api.BeforeEach;

@@ -1,6 +1,5 @@
-package com.toyreactjava.job;
+package com.toyreactjava.quartz;
 
-import com.toyreactjava.api.services.JobService;
 import org.quartz.Job;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;

@@ -1,4 +1,4 @@
-package com.toyreactjava.api;
+package com.toyreactjava;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -24,4 +24,15 @@ public class App {
             }
         };
     }
+
+//    QuartzJob qj = new QuartzJob();
+//
+//    @EventListener(ApplicationReadyEvent.class)
+//    public void onAppStartUp() {
+//        try {
+//          qj.execute();
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//    }
 }
