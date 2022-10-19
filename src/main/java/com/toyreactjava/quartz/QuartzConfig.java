@@ -21,22 +21,23 @@ public class QuartzConfig {
      To complete this config class
      we will add some more code at this location.
      First look at the below lines and understand
+
+     job > jobDetail > triggerBean > schedulerBean
      ----------------------------
      **/
 
     @Bean
-    public SimpleTriggerFactoryBean
-    createSimpleTriggerFactoryBean(JobDetail jobDetail)
-    {
+    public SimpleTriggerFactoryBean createSimpleTriggerFactoryBean(JobDetail jobDetail) {
+
         SimpleTriggerFactoryBean simpleTriggerFactory
                 = new SimpleTriggerFactoryBean();
 
         simpleTriggerFactory.setJobDetail(jobDetail);
         simpleTriggerFactory.setStartDelay(0);
-        simpleTriggerFactory.setRepeatInterval(5000);
-        simpleTriggerFactory.setRepeatCount(10);
+        simpleTriggerFactory.setRepeatInterval(180000);//repeat every 3 minutes
         return simpleTriggerFactory;
     }
+
     @Bean
     public JobDetailFactoryBean createJobDetailFactoryBean(){
 

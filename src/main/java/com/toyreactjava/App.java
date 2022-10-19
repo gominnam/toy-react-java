@@ -25,14 +25,4 @@ public class App {
         };
     }
 
-//    QuartzJob qj = new QuartzJob();
-//
-//    @EventListener(ApplicationReadyEvent.class)
-//    public void onAppStartUp() {
-//        try {
-//          qj.execute();
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//    }
 }

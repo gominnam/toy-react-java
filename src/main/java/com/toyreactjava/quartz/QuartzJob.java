@@ -11,6 +11,6 @@ public class QuartzJob implements Job {
 
     @Override
     public void execute(JobExecutionContext jobExecutionContext) throws JobExecutionException {
-        service.hello();
+        service.getRealTimeSignal();
     }
 }
