@@ -10,11 +10,11 @@ const Board = () => {
     useEffect(() => {
         axios.get('/api/real-time')
             .then(res => {
-                const hrefs = res.data.result.href;
-                const titles = res.data.result.title;
-                const rankItems = hrefs.map((e, i) => {
-                    return {"no": i+1, "href": e, "title": titles[i]}
+
+                const rankItems = res.data.result.map((e, i) => {
+                    return {"no": i+1, "title": e.title, "href": e.href}
                 });
+
                 setRankItems(rankItems);
             })
             .catch(err =>{
