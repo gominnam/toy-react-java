@@ -48,10 +48,9 @@ function Login(){
 
     const onClickLogin = () => {
         const body = { 'userId': inputId, 'password': inputPw };
-        console.log(`click login button. : ${body}`);
+
         axios.post('http://localhost:8080/api/login', body)
             .then(response => {
-                console.log(response.data);
                 navigate("../board")
             })
             .catch(error =>{
@@ -61,11 +60,6 @@ function Login(){
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        const data = new FormData(event.currentTarget);
-        console.log({
-            userid: data.get('user-id'),
-            password: data.get('password'),
-        });
     };
 
     return(
@@ -145,7 +139,7 @@ function Login(){
                                     </Link>
                                 </Grid>
                                 <Grid item>
-                                    <Link href="#" variant="body2">
+                                    <Link href="../signup" variant="body2">
                                         {"회원가입"}
                                     </Link>
                                 </Grid>

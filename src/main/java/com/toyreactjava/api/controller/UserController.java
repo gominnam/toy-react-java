@@ -19,7 +19,6 @@ public class UserController {
     @PostMapping (value="/login")
     public ApiResponse<User> login(@RequestBody User user) throws SQLException, Exception{
         User loginUser = userService.login(user);
-        System.out.println("params : " + loginUser);
 
         if(loginUser == null){
             return new ApiResponse<>(ApiResponse.BAD_REQUEST, "invalid_user_info", null);

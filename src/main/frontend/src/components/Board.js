@@ -1,7 +1,11 @@
 import React, {useState, useEffect} from 'react';
 import {useNavigate} from "react-router-dom"
 import axios from "axios";
-import Button from '@mui/material/button';
+import {
+    Box,
+    Grid
+} from "@mui/material";
+import Button from '@material-ui/core/Button';
 
 const Board = () => {
     const navigate = useNavigate();
@@ -30,14 +34,16 @@ const Board = () => {
                 {rankItems.map(rank => (
                     <div>
                         <a href={rank.href} className="rank-layer">
-                        <span className="rank-num">{rank.no}</span>
+                        <Box component="span" className="rank-num">{rank.no}</Box>
                         <span className="rank-title">{rank.title}</span>
                         </a>
                     </div>
                 ))}
             </div>
 
-            <Button varient="contained" onClick={()=>navigate(-1)}>Go Back Page</Button>
+            <Button onClick={()=>navigate(-1)} variant="contained" color="primary">
+                Go Back Page
+            </Button>
         </>
     )
 };
