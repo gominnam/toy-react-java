@@ -3,8 +3,6 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
 import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
@@ -31,6 +29,7 @@ const theme = createTheme();
 export default function SignUp() {
     const [inputId, setInputId] = useState('');
     const [inputPw, setInputPw] = useState('');
+    const [inputEmail, setInputEmail] = useState('');
 
     const handleInputId = (e) => {
         setInputId(e.target.value);
@@ -38,6 +37,10 @@ export default function SignUp() {
 
     const handleInputPw = (e) => {
         setInputPw(e.target.value);
+    }
+
+    const handleInputEmail = (e) => {
+        setInputEmail(e.target.value);
     }
 
     const handleSubmit = (event) => {
@@ -48,12 +51,6 @@ export default function SignUp() {
             password: data.get('password'),
         });
     };
-
-    const onClickSignUp = () => {
-        const body = { 'userId': inputId, 'password': inputPw };
-
-
-    }
 
     return (
         <ThemeProvider theme={theme}>
@@ -102,7 +99,7 @@ export default function SignUp() {
                                 <TextField
                                     required
                                     fullWidth
-                                    name="password"
+                                    name="password-confirm"
                                     label="비밀번호 재확인"
                                     type="password"
                                     id="password"
@@ -117,12 +114,7 @@ export default function SignUp() {
                                     label="이메일 주소"
                                     name="email"
                                     autoComplete="email"
-                                />
-                            </Grid>
-                            <Grid item xs={12}>
-                                <FormControlLabel
-                                    control={<Checkbox value="allowExtraEmails" color="primary" />}
-                                    label="I want to receive inspiration, marketing promotions and updates via email."
+                                    onChange={handleInputEmail}
                                 />
                             </Grid>
                         </Grid>
@@ -131,7 +123,6 @@ export default function SignUp() {
                             fullWidth
                             variant="contained"
                             sx={{ mt: 3, mb: 2 }}
-                            onClick={onClickSignUp}
                         >
                             가입하기
                         </Button>

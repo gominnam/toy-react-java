@@ -18,7 +18,6 @@ const Board = () => {
                 const rankItems = res.data.result.map((e, i) => {
                     return {"no": i+1, "title": e.title, "href": e.href}
                 });
-
                 setRankItems(rankItems);
             })
             .catch(err =>{
