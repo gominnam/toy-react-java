@@ -26,4 +26,15 @@ public class UserController {
 
         return new ApiResponse<>(ApiResponse.OK, "welcome_toy_world!", null);
     }
+
+    @PostMapping (value="/sign-up")
+    public void signup(@RequestBody User user) throws SQLException, Exception{
+        User loginUser = userService.login(user);
+
+        //if(loginUser == null){
+            //return new ApiResponse<>(ApiResponse.BAD_REQUEST, "invalid_user_info", null);
+        //}
+
+        //return new ApiResponse<>(ApiResponse.OK, "welcome_toy_world!", null);
+    }
 }

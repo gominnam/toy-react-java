@@ -10,6 +10,7 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import axios from "axios";
 
 function Copyright(props) {
     return (
@@ -47,9 +48,21 @@ export default function SignUp() {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
         console.log({
+            userId: data.get('user-id'),
             email: data.get('email'),
             password: data.get('password'),
         });
+
+        const body = { 'userId': data.get('user-id'), 'password': data.get('password'),
+                        'email': data.get('email')};
+
+        axios.post('http://localhost:8080/api/sign-up', body)
+            .then(response => {
+                //navigate("../board")
+            })
+            .catch(error =>{
+                console.error('There was an error!', error);
+            });
     };
 
     return (
