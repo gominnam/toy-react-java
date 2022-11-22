@@ -20,8 +20,6 @@ spring:
     username: ${GOOGLE_ID}
     password: ${GOOGLE_PASSWORD}
     properties:
-      mail:
-        smtp:
-          auth: true
-          starttls:
-            enable: true
+      mail.transport.protocol: smtp
+      mail.smtp.auth: true
+      mail.smtp.starttls.enable: true

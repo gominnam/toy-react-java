@@ -5,6 +5,7 @@ import com.toyreactjava.api.services.MailService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -13,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class MailController {
     private final MailService mailService;
 
-    @PostMapping("/mail")
-    public void execMail(MailDto mailDto) {
+    @PostMapping(value="/mail")
+    public void execMail(@RequestBody MailDto mailDto) {
         mailService.mailSend(mailDto);
     }
 
