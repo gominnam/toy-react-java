@@ -44,6 +44,10 @@ export default function SignUp() {
         setInputEmail(e.target.value);
     }
 
+    const handleInputAuthCode = (e) => {
+        setInputEmail(e.target.value);
+    }
+
     const handleSubmit = (event) => {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
@@ -59,6 +63,18 @@ export default function SignUp() {
         axios.post('http://localhost:8080/api/sign-up', body)
             .then(response => {
                 //navigate("../board")
+            })
+            .catch(error =>{
+                console.error('There was an error!', error);
+            });
+    };
+
+    function authCodeAPI(){
+        const body = { 'email': inputEmail};
+        console.log("authCodeAPI call");
+        axios.post('http://localhost:8080/api/mail', body)
+            .then(response => {
+                //todo: 성공 -> 회원가입 성공적이다 라는 문구, 실패 -> 실패 원인
             })
             .catch(error =>{
                 console.error('There was an error!', error);
@@ -119,15 +135,36 @@ export default function SignUp() {
                                     autoComplete="cof-password"
                                 />
                             </Grid>
-                            <Grid item xs={12}>
+                            <Grid item xs={12}
+                                  justify="space-between">
                                 <TextField
                                     required
-                                    fullWidth
+                                    style ={{width: '60%'}}
                                     id="email"
                                     label="이메일 주소"
                                     name="email"
                                     autoComplete="email"
                                     onChange={handleInputEmail}
+
+                                />
+                                <Button
+                                    type="submit"
+                                    variant="contained"
+                                    sx={{ height: '100%', width: '40%' }}
+                                    onClick={authCodeAPI}
+                                >
+                                    인증번호
+                                </Button>
+                            </Grid>
+                            <Grid item xs={12}>
+                                <TextField
+                                    required
+                                    fullWidth
+                                    id="authCode"
+                                    label="인증번호"
+                                    name="authCode"
+                                    autoComplete="authCode"
+                                    onChange={handleInputAuthCode}
                                 />
                             </Grid>
                         </Grid>

@@ -9,7 +9,7 @@ import org.springframework.web.multipart.MultipartFile;
 @Setter
 @NoArgsConstructor
 public class MailDto {
-    private String address;
+    private String email;
     private String title;
     private String message;
     private MultipartFile file;
