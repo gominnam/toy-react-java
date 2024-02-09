@@ -28,4 +28,9 @@ public class UserService {
     public User login(User user) {
         return userRepository.login(user.getUserId(), user.getPassword());
     }
+
+    @Transactional
+    public User signup(User user) {
+        return userRepository.login(user.getUserId(), user.getPassword());
+    }
 }

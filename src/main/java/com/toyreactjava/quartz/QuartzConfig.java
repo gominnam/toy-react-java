@@ -34,7 +34,7 @@ public class QuartzConfig {
 
         simpleTriggerFactory.setJobDetail(jobDetail);
         simpleTriggerFactory.setStartDelay(0);
-        simpleTriggerFactory.setRepeatInterval(180000);//repeat every 3 minutes
+        simpleTriggerFactory.setRepeatInterval(180000);//repeat every 3(180000) minutes
         return simpleTriggerFactory;
     }
 

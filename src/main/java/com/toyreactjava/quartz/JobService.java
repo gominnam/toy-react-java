@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -26,8 +27,10 @@ public class JobService {
     //public static List<RealTimeSignalVO> realTimeSignalData = new ArrayList<>();
 
     public void getRealTimeSignal(){
-        System.setProperty("webdriver.chrome.driver", "/Users/minjunko/application/chromedriver");
-        WebDriver driver = new ChromeDriver();
+        System.setProperty("webdriver.chrome.driver", "./chromedriver");
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--remote-allow-origins=*");
+        WebDriver driver = new ChromeDriver(options);
         List<RealTimeSignalDTO> realTimeData = new ArrayList<>();
 
         try {

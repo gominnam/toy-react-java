@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {useNavigate} from "react-router-dom"
+import {useNavigate} from "react-router-dom";
 import axios from "axios";
 import {
     Box,
@@ -38,16 +38,22 @@ const Board = () => {
             }
         >
             {rankItems.map(rank => (
-                <ListItemButton key={rank.no} component="a" href={rank.href} >
-                    <img
-                        src={`/static/img/${rank.no}.png`}
-                        width={24}
-                        height={24}
-                        loading="lazy"
-                    />
-                    <ListItemText primary={rank.title} />
-                </ListItemButton>
-
+                <Box key={rank.no} component="a" href={rank.href} sx={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    textDecoration: 'none', // 링크의 밑줄 제거
+                    color: 'inherit', // 링크 색상 상속
+                }}>
+                    <ListItemButton sx={{ padding: '8px 16px', display: 'flex', width: '100%' }}>
+                        <img
+                            src={`/static/img/${rank.no}.png`}
+                            alt={rank.title}
+                            style={{ width: 24, height: 24, marginRight: '8px' }}
+                            loading="lazy"
+                        />
+                        <ListItemText primary={rank.title} />
+                    </ListItemButton>
+                </Box>
             ))}
 
 

@@ -36,3 +36,6 @@ out/
 ### VS Code ###
 .vscode/
 /chromedriver
+
+### react licences ###
+**/static/static/js/
