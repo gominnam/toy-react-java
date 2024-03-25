@@ -55,15 +55,15 @@ MySql
 
 - 로그인 화면 (http://localhost:3000)
 
-<img src="src/main/resources/static/static/img/readme/login-page.png" alt="login page" style="max-width: 400px; height: auto;">
+<img src="src/main/resources/static/static/img/readme/login-page.png" alt="login page" style="width: 400px; height: auto;">
 
 - 로그인 성공 (http://localhost:3000/board)
 
-<img src="src/main/resources/static/static/img/readme/board-page.png" alt="board page" style="max-width: 200px; height: auto;">
+<img src="src/main/resources/static/static/img/readme/board-page.png" alt="board page" style="width: 200px; height: 300px;">
 
 - 크롤링 작업 화면 (서버 구동시, 3분마다[Quartz Scheduler에서 변경])
 
-<img src="src/main/resources/static/static/img/readme/selenium_crawling.png" alt="crawling" style="max-width: 400px; height: auto;">
+<img src="src/main/resources/static/static/img/readme/selenium_crawling.png" alt="crawling" style="width: 300px; height: 200px;">
 
 ## Notice
 - 로그인 기능만 구현 
